@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — TripVolanza</title>
+  <meta name="description" content="Contactate con el equipo de TripVolanza.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__trip">Trip</span><span class="logo__volanza">Volanza</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="main-nav__list">
+          <li><a href="index.html#buscador">Vuelos</a></li>
+          <li><a href="index.html#destinos">Destinos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="pagina-simple">
+      <div class="container">
+        <h1>Contacto</h1>
+        <p>¿Tenés una consulta, sugerencia o encontraste un problema en el sitio? Escribinos y te respondemos a la brevedad.</p>
+
+        <!-- Este formulario todavía no envía el mensaje a ningún lado.
+             Por ahora usamos mailto: para que se abra el mail del usuario.
+             Más adelante, si querés un formulario "de verdad" (que guarde
+             o envíe el mensaje sin depender del programa de mail del
+             usuario), vamos a necesitar un pequeño backend o un servicio
+             externo tipo Formspree. Lo dejamos anotado como pendiente. -->
+        <form action="mailto:hola@tripvolanza.com" method="post" enctype="text/plain" class="form-contacto">
+          <div class="form-contacto__campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-contacto__campo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-contacto__campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="buscador-form__boton">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__col">
+        <span class="logo"><span class="logo__trip">Trip</span><span class="logo__volanza">Volanza</span></span>
+        <p class="site-footer__aviso">
+          TripVolanza es un comparador de vuelos. Participamos en programas de afiliación
+          (Travelpayouts) y podemos recibir una comisión cuando reservás a través de los
+          enlaces de nuestro sitio. Los precios y la disponibilidad son informados por
+          terceros y pueden variar.
+        </p>
+      </div>
+      <div class="site-footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terminos.html">Términos y condiciones</a></li>
+          <li><a href="privacidad.html">Política de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__copy">© 2026 TripVolanza. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

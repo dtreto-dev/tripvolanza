@@ -1,0 +1,11 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuración de editores
+.vscode/
+*.code-workspace
+
+# Futuras dependencias (cuando sumemos backend, Node, etc.)
+node_modules/
+.env

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripVolanza — Encontrá tu vuelo al mejor precio</title>
+  <meta name="description" content="Buscá y compará pasajes aéreos de forma rápida y sencilla con TripVolanza.">
+
+  <!-- Tipografías: las traemos de Google Fonts, no las escribimos nosotros -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Nuestros propios estilos -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+
+      <a href="index.html" class="logo">
+        <span class="logo__trip">Trip</span><span class="logo__volanza">Volanza</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="main-nav__list">
+          <li><a href="#buscador">Vuelos</a></li>
+          <li><a href="#destinos">Destinos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+        <!-- ===================== HERO ===================== -->
+    <section class="hero" id="buscador">
+
+      <!-- Carrusel de fondo: 3 fotos que se van alternando con un efecto de desvanecido -->
+      <div class="hero__carrusel">
+        <div class="hero__slide hero__slide--activa" style="background-image: url('img/hero-1.jpg');"></div>
+        <div class="hero__slide" style="background-image: url('img/hero-2.jpg');"></div>
+        <div class="hero__slide" style="background-image: url('img/hero-3.jpg');"></div>
+      </div>
+
+      <div class="container hero__inner">
+
+        <h1 class="hero__titulo">Volá al mejor precio</h1>
+        <p class="hero__subtitulo">Comparamos vuelos de las principales aerolíneas para que encuentres la mejor opción, sin vueltas.</p>
+
+        <div class="buscador-card" id="widget-vuelos">
+          <form class="buscador-form">
+            <div class="buscador-form__campo">
+              <label for="origen">Origen</label>
+              <input type="text" id="origen" placeholder="Buenos Aires (EZE)">
+            </div>
+            <div class="buscador-form__campo">
+              <label for="destino">Destino</label>
+              <input type="text" id="destino" placeholder="¿A dónde querés ir?">
+            </div>
+            <div class="buscador-form__campo">
+              <label for="ida">Ida</label>
+              <input type="date" id="ida">
+            </div>
+            <div class="buscador-form__campo">
+              <label for="vuelta">Vuelta</label>
+              <input type="date" id="vuelta">
+            </div>
+            <div class="buscador-form__campo buscador-form__campo--pasajeros">
+              <label for="pasajeros">Pasajeros</label>
+              <select id="pasajeros">
+                <option>1 adulto</option>
+                <option>2 adultos</option>
+                <option>3 adultos</option>
+                <option>4 adultos</option>
+              </select>
+            </div>
+            <button type="submit" class="buscador-form__boton">Buscar vuelos</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+       <!-- ===================== POR QUÉ TRIPVOLANZA ===================== -->
+    <section class="beneficios">
+      <div class="container beneficios__grid">
+
+        <div class="beneficio">
+          <div class="beneficio__icono">💰</div>
+          <h3 class="beneficio__titulo">Mejor precio</h3>
+          <p class="beneficio__texto">Comparamos múltiples aerolíneas para mostrarte las opciones más convenientes.</p>
+        </div>
+
+        <div class="beneficio">
+          <div class="beneficio__icono">⚡</div>
+          <h3 class="beneficio__titulo">Fácil de usar</h3>
+          <p class="beneficio__texto">Buscá tu vuelo en segundos, sin registros complicados ni pasos innecesarios.</p>
+        </div>
+
+        <div class="beneficio">
+          <div class="beneficio__icono">🛡️</div>
+          <h3 class="beneficio__titulo">Confianza</h3>
+          <p class="beneficio__texto">Trabajamos con proveedores reconocidos para que viajes con tranquilidad.</p>
+        </div>
+
+      </div>
+    </section>
+     
+        <!-- ===================== DESTINOS POPULARES ===================== -->
+    <section class="destinos" id="destinos">
+      <div class="container">
+        <h2 class="destinos__titulo">Destinos populares</h2>
+        <p class="destinos__subtitulo">Ejemplos de precios (placeholder: se reemplaza por datos reales de la API)</p>
+
+                <div class="destinos__grid">
+
+          <div class="destino-card">
+            <img src="img/destino-madrid.jpg" alt="Vista de Madrid" class="destino-card__imagen">
+            <div class="destino-card__info">
+              <h3>Madrid</h3>
+              <p>Desde <strong>USD 650</strong></p>
+            </div>
+          </div>
+
+          <div class="destino-card">
+            <img src="img/destino-miami.jpg" alt="Vista de Miami" class="destino-card__imagen">
+            <div class="destino-card__info">
+              <h3>Miami</h3>
+              <p>Desde <strong>USD 480</strong></p>
+            </div>
+          </div>
+
+          <div class="destino-card">
+            <img src="img/destino-rio.jpg" alt="Vista de Río de Janeiro" class="destino-card__imagen">
+            <div class="destino-card__info">
+              <h3>Río de Janeiro</h3>
+              <p>Desde <strong>USD 210</strong></p>
+            </div>
+          </div>
+
+          <div class="destino-card">
+            <img src="img/destino-cancun.jpg" alt="Vista de Cancún" class="destino-card__imagen"> 
+            <div class="destino-card__info">
+              <h3>Cancún</h3>
+              <p>Desde <strong>USD 590</strong></p>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+
+      <div class="site-footer__col">
+        <span class="logo"><span class="logo__trip">Trip</span><span class="logo__volanza">Volanza</span></span>
+        <p class="site-footer__aviso">
+          TripVolanza es un comparador de vuelos. Participamos en programas de afiliación
+          (Travelpayouts) y podemos recibir una comisión cuando reservás a través de los
+          enlaces de nuestro sitio. Los precios y la disponibilidad son informados por
+          terceros y pueden variar.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terminos.html">Términos y condiciones</a></li>
+          <li><a href="privacidad.html">Política de privacidad</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="site-footer__copy">
+      © 2026 TripVolanza. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
