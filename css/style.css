@@ -1,0 +1,557 @@
+/* =========================================================
+   1. RESET BÁSICO
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   2. VARIABLES DE LA MARCA (Design Tokens)
+   ========================================================= */
+:root {
+  --color-azul-principal: #1B4B8F;
+  --color-azul-claro: #4A90D9;
+  --color-naranja: #FF7A45;
+  --color-fondo: #FFFFFF;
+  --color-fondo-suave: #F7F9FC;
+  --color-texto: #1F2937;
+
+  --fuente-titulos: 'Poppins', sans-serif;
+  --fuente-texto: 'Inter', sans-serif;
+
+  --ancho-maximo: 1180px;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+.site-header {
+  background-color: var(--color-fondo);
+  border-bottom: 1px solid #E5E9F0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: inline-flex;
+}
+
+.logo__trip {
+  color: var(--color-azul-principal);
+  font-weight: 600;
+}
+
+.logo__volanza {
+  color: var(--color-naranja);
+}
+
+.main-nav__list {
+  display: flex;
+  gap: 32px;
+}
+
+.main-nav__list a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  transition: color 0.2s ease;
+}
+
+.main-nav__list a:hover,
+.main-nav__list a:focus-visible {
+  color: var(--color-azul-principal);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-azul-principal);
+}
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+/* =========================================================
+   4. HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+  padding: 96px 0 120px;
+  text-align: center;
+}
+
+/* Las 3 fotos del carrusel, todas apiladas una sobre otra */
+.hero__carrusel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* La franja azul semitransparente que va ENCIMA de la foto,
+   para que el texto blanco se siga leyendo bien */
+.hero__slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27, 75, 143, 0.85), rgba(74, 144, 217, 0.75));
+}
+
+.hero__slide--activa {
+  opacity: 1;
+}
+
+.hero__inner {
+  position: relative; /* para que el contenido quede POR ENCIMA del carrusel */
+  z-index: 1;
+}
+
+.hero__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 3rem;
+  font-weight: 700;
+  max-width: 700px;
+  margin: 0 auto 16px;
+}
+
+.hero__subtitulo {
+  font-size: 1.125rem;
+  max-width: 520px;
+  margin: 0 auto 48px;
+  color: #E3ECF9;
+}
+
+.buscador-card {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  box-shadow: 0 20px 40px rgba(15, 32, 64, 0.25);
+}
+
+.buscador-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 16px;
+  align-items: end;
+  text-align: left;
+}
+
+.buscador-form__campo label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6B7280;
+  margin-bottom: 6px;
+}
+
+.buscador-form__campo input,
+.buscador-form__campo select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #D9E0EA;
+  border-radius: 8px;
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  color: var(--color-texto);
+}
+
+.buscador-form__campo input:focus,
+.buscador-form__campo select:focus {
+  outline: 2px solid var(--color-azul-claro);
+  outline-offset: 1px;
+}
+
+.buscador-form__boton {
+  background-color: var(--color-naranja);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: var(--fuente-texto);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.buscador-form__boton:hover {
+  background-color: #E6642F;
+}
+
+/* =========================================================
+   5. BENEFICIOS ("Por qué TripVolanza")
+   ========================================================= */
+.beneficios {
+  padding: 80px 0;
+  background-color: var(--color-fondo-suave);
+}
+
+.beneficios__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.beneficio__icono {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.beneficio__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: var(--color-azul-principal);
+}
+
+.beneficio__texto {
+  color: #4B5563;
+  font-size: 0.95rem;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   6. DESTINOS POPULARES
+   ========================================================= */
+.destinos {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.destinos__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  color: var(--color-texto);
+}
+
+.destinos__subtitulo {
+  color: #9CA3AF;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.destinos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+.destino-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15, 32, 64, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.destino-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Como todavía no tenemos fotos reales, uso degradados de color
+   distintos por destino a modo de placeholder visual */
+.destino-card__imagen {
+  height: 140px;
+  width: 100%;
+  object-fit: cover;  /* la foto llena el espacio sin estirarse ni deformarse */
+  display: block;
+}
+
+.destino-card__imagen--madrid  { background: linear-gradient(135deg, #1B4B8F, #4A90D9); }
+.destino-card__imagen--miami   { background: linear-gradient(135deg, #FF7A45, #FFB088); }
+.destino-card__imagen--rio     { background: linear-gradient(135deg, #16A085, #6FE3C4); }
+.destino-card__imagen--cancun  { background: linear-gradient(135deg, #0EA5E9, #7DD3FC); }
+
+.destino-card__info {
+  padding: 16px;
+}
+
+.destino-card__info h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.destino-card__info p {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   7. FOOTER
+   ========================================================= */
+.site-footer {
+  position: relative;
+  color: #D1D5DB;
+  padding: 56px 0 24px;
+  background-image:
+    linear-gradient(rgba(17, 24, 39, 0.92), rgba(17, 24, 39, 0.96)),
+    url('../img/footer-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+.site-footer__col h4 {
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.site-footer__col ul li {
+  margin-bottom: 8px;
+}
+
+.site-footer__col ul a {
+  color: #D1D5DB;
+  font-size: 0.9rem;
+}
+
+.site-footer__col ul a:hover {
+  color: #FFFFFF;
+}
+
+.site-footer__aviso {
+  font-size: 0.8rem;
+  color: #9CA3AF;
+  margin-top: 12px;
+  max-width: 420px;
+}
+
+.site-footer__copy {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6B7280;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #374151;
+}
+
+/* =========================================================
+   8. PÁGINA SIMPLE (Contacto, Términos, Privacidad)
+   ========================================================= */
+.pagina-simple {
+  padding: 64px 0;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.pagina-simple h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: var(--color-azul-principal);
+}
+
+.pagina-simple p {
+  margin-bottom: 24px;
+  color: #4B5563;
+}
+
+.form-contacto__campo {
+  margin-bottom: 20px;
+}
+
+.form-contacto__campo label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.form-contacto__campo input,
+.form-contacto__campo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #D9E0EA;
+  border-radius: 8px;
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   9. PÁGINA 404
+   ========================================================= */
+.pagina-404 {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.pagina-404__codigo {
+  font-family: var(--fuente-titulos);
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--color-azul-claro);
+}
+
+.pagina-404__boton {
+  display: inline-block;
+  margin-top: 24px;
+}
+
+/* =========================================================
+   10. PÁGINAS LEGALES (Términos, Privacidad)
+   ========================================================= */
+.pagina-legal {
+  padding: 64px 0 96px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.pagina-legal h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  color: var(--color-azul-principal);
+  margin-bottom: 4px;
+}
+
+.pagina-legal__fecha {
+  color: #9CA3AF;
+  font-size: 0.85rem;
+  margin-bottom: 32px;
+}
+
+.pagina-legal h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.15rem;
+  margin: 32px 0 12px;
+  color: var(--color-texto);
+}
+
+.pagina-legal p {
+  color: #4B5563;
+  margin-bottom: 8px;
+}
+
+.pagina-legal a {
+  color: var(--color-azul-claro);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   5. RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid #E5E9F0;
+    box-shadow: 0 12px 24px rgba(15, 32, 64, 0.1);
+  }
+
+  .main-nav.is-open {
+    display: block;
+  }
+
+  .main-nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav__list li {
+    border-bottom: 1px solid #F0F2F5;
+  }
+
+  .main-nav__list a {
+    display: block;
+    padding: 16px 24px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: relative;
+    z-index: 101;
+  }
+
+  /* Cuando el menú está abierto, transformamos las 3 rayitas en una "X" */
+  .menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero { padding: 56px 0 64px; }
+  .hero__titulo { font-size: 2rem; }
+  .buscador-form { grid-template-columns: 1fr; }
+  .buscador-form__boton { width: 100%; }
+  .beneficios__grid { grid-template-columns: 1fr; gap: 32px; }
+  .destinos__grid { grid-template-columns: 1fr 1fr; }
+  .site-footer__inner { grid-template-columns: 1fr; gap: 32px; }
+}
